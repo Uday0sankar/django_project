@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+    <title>login</title>
+<form action="{% url 'shop:login' %}" class="bg-warning bg-gradient m-5 p-5 rounded" method="POST">
+
+  {% csrf_token %}
+  <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">User Name</label>
+    <div class="col-sm-10">
+      <input name="n" type="text" class="form-control" id="inputEmail3">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input name="p"type="password" class="form-control" id="inputPassword3">
+    </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form>
+{% if messages %}
+{% for i in messages %}
+<h2 style="margin-left:10px;">{{i}}</h2>
+{% endfor %}
+{% endif %}
+{% endblock %}

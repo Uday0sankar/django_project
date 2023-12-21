@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<head>
+  <style>
+
+  </style>
+
+</head>
+
+
+{% block content %}
+<title>category</title>
+<body>
+{% if user.is_authenticated %}
+<h3>Hello {{user.username}}</h3>
+{% else %}
+<h4>Guest</h4>
+{% endif %}
+
+<div class="shadow-sm">
+  <img class="" height="450px" width="100%" src="{% static 'images/banner.jpg' %}">
+</div  >
+<div class="container-fluid mt-4 shadow-sm " style="margin-bottom:100px;" >
+  <h2 class="text-center ">OUR COLLECTION</h2>
+  <p class="text-center" style="line-height:1.8;text-align:justify;">Step into a world of radiant warmth and timeless elegance with our captivating collection curated in shades of gold. From the soft glow of pale yellows to the bold brilliance of deep gold tones, our curated selection embodies the spirit of sunshine and joy. Explore the beauty of our carefully curated fashion, where every garment tells a story of vibrancy and brilliance. Unveil your style with our dazzling yellow hues and let the sunshine become a part of your fashion journey."</p>
+
+</div>
+
+
+
+<h2 class="text-center ">CATEGORY</h2>
+
+<div class="container-fluid mt 4 shadow-sm" style="margin-bottom:100px;">
+
+<div class="row" >
+ {% for i in Category %}
+    <div class="col-lg-4 mb-4">
+  <div class="card " style="width: 18rem;">
+   <img src="{{i.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+     <h5 class="card-title text-center">{{i.name}}</h5>
+      <p class="card-text">{{i.desc}}.</p>
+     <a href="{% url 'shop:allproducts' i.name %}" class="btn btn-warning">PRODUCTS</a>
+  </div>
+
+</div>
+    </div>{% endfor %}
+
+</div>
+</div>
+
+</body>
+{% endblock %}
+
+

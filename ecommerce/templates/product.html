@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <title>Product</title>
+
+<!-- category banner image start-->
+<div class="shadow-sm mt-5">
+
+  <img class="" height="450px" width="100%" src="{{ c.image.url }}">
+
+</div  >
+
+
+
+<!-- category banner image end-->
+
+
+
+<h2 class="text-center mb-5 mt-5" style="text-transform: capitalize;">{{c.name}}</h2>
+
+<div class="container-fluid mt 4 shadow-sm" style="margin-bottom:100px;">
+
+<div class="row text-center" >
+ {% for i in p %}
+    <div class="col-lg-4 mb-4">
+  <div class="card " style="width: 18rem;">
+   <img class="shadow-sm" height="250px" width="288px" src="{{i.image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+     <h5 class="card-title text-center">{{i.name}}</h5>
+      <p class="card-text">{{i.desc}}.</p>
+     <a href="{% url 'shop:Item' i.name %}" class="btn btn-warning">PRODUCTS</a>
+  </div>
+
+</div>
+    </div>{% endfor %}
+
+</div>
+</div>
+
+
+
+{% endblock %}

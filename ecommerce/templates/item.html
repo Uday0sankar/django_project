@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <title>{{p.name}}</title>
+
+<div class="card mt-5 mb-3 mx-auto" style="max-width: 1000px;max-height:400px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img style="width: 100%;height: 85%;" src="{{p.image.url}}" class="img-fluid rounded-start shadow-lg d-flex " alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="fs-2 card-title">{{ p.name }}</h5>
+        <p class="card-text">{{p.desc}}</p>
+        <p class="fs-3 card-text">{{p.price}}</p>
+        <p class="card-text"> Available : {{p.available}}</p>
+        <p class="card-text"><small class="text-muted">Last updated {{p.updated}} </small></p>
+        {% if user.is_superuser == False %}
+        {% if p.stock <= 0 %}
+        <h4>Out of Stock</h4>
+        {% else %}
+        <a href="{% url 'cart:addtocart' p.name %}" class="btn btn-warning">Add Cart..<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        {% endif %}
+        {% else %}
+        {% if p.stock <= 0 %}
+        <h4>Out of Stock</h4>
+        <h5><a href="{% url 'admin:index' %}" class="btn btn-secondary" >Add Stock</a></h5>
+        {% else %}
+        <h4>Product Stock</h4>
+        <h5><a href="{% url 'admin:index' %}" class="btn btn-secondary" >Add Stock</a></h5>
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

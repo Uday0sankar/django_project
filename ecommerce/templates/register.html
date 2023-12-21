@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <title>Register</title>
+<form method="POST" class="m-5 row g-3">
+  {% csrf_token %}
+    <div class="col-12">
+    <label for="inputAddress" class="form-label">User name</label>
+    <input name="n" type="text" class="form-control"  placeholder="Enter name">
+  </div>
+   <div class="col-12">
+    <label for="inputAddress" class="form-label">E - mail</label>
+    <input name="e" type="text" class="form-control"  placeholder="Enter name">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">password</label>
+    <input name="pswd" type="password" class="form-control" id="inputEmail4">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Confirm Password</label>
+    <input name="cp" type="password" class="form-control" id="inputPassword4">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Phone number</label>
+    <input name="p" type="text" class="form-control" id="inputAddress" placeholder="1234">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Address </label>
+    <input name="a" type="text" class="form-control" id="inputAddress2" placeholder="Apartment, or floor">
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+{% endblock %}
+

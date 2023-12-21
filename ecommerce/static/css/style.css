@@ -1,0 +1,20 @@
+body
+{
+   background-color:#FFAD32;
+
+   font-family: 'Dhurjati', sans-serif;
+   }
+
+   
+footer{
+height:50px;
+width:100%;
+background-color:white;
+position:fixed;
+bottom:0;
+left:0;
+text-align:center;
+font-weight:bold;
+
+
+}
